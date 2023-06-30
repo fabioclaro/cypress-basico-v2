@@ -78,10 +78,16 @@ describe('Central de Atendimento ao Cliente TAT', function () {
       cy.get('.error').should('be.visible')
    })
 
-   it.only('envia o formuário com sucesso usando um comando customizado', function () {
+   it('envia o formuário com sucesso usando um comando customizado', function () {
       cy.fillMandatoryFieldsAndSubmit()
 
       cy.get('.success').should('be.visible')
+   })
+
+   it('Utilizando o comando contains no lugar do comando get', function () {
+         cy.contains('button', 'Enviar').click()
+   
+         cy.get('.error').should('be.visible')
    })
 })
 
